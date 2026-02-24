@@ -6,185 +6,229 @@
 <title>Krachtig Coaching & Training</title>
 <style>
   :root {
-    --green: #2d6a4f;
-    --green-light: #52b788;
-    --green-pale: #d8f3dc;
-    --cream: #faf7f2;
-    --dark: #1b2a23;
-    --gray: #6b7c74;
-    --white: #ffffff;
+    --navy:    #1a3a5c;
+    --navy-dark: #112540;
+    --teal:    #2a8fa8;
+    --teal-light: #4db8d0;
+    --teal-pale: #e0f4f8;
+    --cream:   #f7fafc;
+    --white:   #ffffff;
+    --dark:    #1c2b38;
+    --mid:     #3d5166;
+    --gray:    #6a7f90;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Georgia', serif; background: var(--cream); color: var(--dark); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Georgia',serif; background:var(--cream); color:var(--dark); }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 3rem;
-    background: rgba(250,247,242,0.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(45,106,79,0.1);
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 3rem; height:68px;
+    background:rgba(247,250,252,0.96);
+    backdrop-filter:blur(12px);
+    border-bottom:3px solid var(--teal);
+    box-shadow:0 2px 16px rgba(26,58,92,0.07);
   }
-  .nav-logo { font-size: 1.3rem; font-weight: bold; color: var(--green); letter-spacing: 0.5px; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--dark); font-size: 0.9rem; font-family: sans-serif; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--green); }
+  .nav-logo {
+    font-size:1.35rem; font-weight:bold; color:var(--navy);
+    letter-spacing:2px; text-transform:uppercase; font-family:sans-serif;
+  }
+  .nav-logo span { color:var(--teal); }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a {
+    text-decoration:none; color:var(--mid); font-size:0.85rem;
+    font-family:sans-serif; text-transform:uppercase; letter-spacing:.8px;
+    transition:color .2s; padding-bottom:2px; border-bottom:2px solid transparent;
+  }
+  .nav-links a:hover { color:var(--teal); border-color:var(--teal); }
   .translate-btn {
-    background: var(--green); color: white; border: none; padding: 0.5rem 1.2rem;
-    border-radius: 30px; cursor: pointer; font-size: 0.85rem; font-family: sans-serif;
-    transition: background 0.2s, transform 0.1s;
-    display: flex; align-items: center; gap: 0.4rem;
+    background:var(--navy); color:white; border:none; padding:.45rem 1.1rem;
+    border-radius:4px; cursor:pointer; font-size:.82rem; font-family:sans-serif;
+    text-transform:uppercase; letter-spacing:.6px;
+    display:flex; align-items:center; gap:.4rem;
+    transition:background .2s;
   }
-  .translate-btn:hover { background: var(--green-light); transform: scale(1.03); }
+  .translate-btn:hover { background:var(--teal); }
 
-  /* HERO */
+  /* ── HERO ── */
   .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 6rem 2rem 4rem;
-    background: linear-gradient(160deg, var(--cream) 60%, var(--green-pale) 100%);
-    position: relative; overflow: hidden;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:6rem 2rem 4rem;
+    background:linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 55%, #1e5070 100%);
+    position:relative; overflow:hidden;
   }
+  /* subtle diagonal stripe accent */
   .hero::before {
-    content: '';
-    position: absolute; bottom: -80px; right: -80px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, var(--green-pale) 0%, transparent 70%);
-    border-radius: 50%;
+    content:''; position:absolute; top:0; right:0; bottom:0; left:0;
+    background:repeating-linear-gradient(
+      -55deg,
+      transparent, transparent 60px,
+      rgba(255,255,255,0.02) 60px, rgba(255,255,255,0.02) 61px
+    );
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:5px;
+    background:linear-gradient(90deg, var(--teal), var(--teal-light));
   }
   .hero-tag {
-    background: var(--green-pale); color: var(--green);
-    padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem;
-    font-family: sans-serif; letter-spacing: 1px; text-transform: uppercase;
-    margin-bottom: 1.5rem; display: inline-block;
+    position:relative;
+    background:rgba(42,143,168,.2); color:var(--teal-light);
+    border:1px solid rgba(77,184,208,.4);
+    padding:.35rem 1.1rem; border-radius:30px; font-size:.75rem;
+    font-family:sans-serif; letter-spacing:2px; text-transform:uppercase;
+    margin-bottom:1.8rem; display:inline-block;
   }
   .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.15; color: var(--dark);
-    max-width: 800px; margin-bottom: 1.5rem;
+    position:relative;
+    font-size:clamp(2.4rem,6vw,4.4rem); line-height:1.15;
+    color:var(--white); max-width:840px; margin-bottom:1.5rem;
   }
-  .hero h1 span { color: var(--green); }
+  .hero h1 span { color:var(--teal-light); }
   .hero p {
-    font-size: 1.15rem; color: var(--gray); max-width: 580px;
-    line-height: 1.8; margin-bottom: 2.5rem; font-family: sans-serif;
+    position:relative;
+    font-size:1.1rem; color:rgba(255,255,255,.72); max-width:600px;
+    line-height:1.9; margin-bottom:2.5rem; font-family:sans-serif;
   }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .hero-btns { position:relative; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
   .btn-primary {
-    background: var(--green); color: white; padding: 0.9rem 2.2rem;
-    border-radius: 50px; text-decoration: none; font-family: sans-serif;
-    font-size: 1rem; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer;
+    background:var(--teal); color:white; padding:.9rem 2.2rem;
+    border-radius:4px; text-decoration:none; font-family:sans-serif;
+    font-size:.95rem; border:none; cursor:pointer;
+    text-transform:uppercase; letter-spacing:.6px;
+    transition:background .2s, transform .15s;
   }
-  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+  .btn-primary:hover { background:var(--teal-light); transform:translateY(-2px); }
   .btn-secondary {
-    background: transparent; color: var(--green); padding: 0.9rem 2.2rem;
-    border-radius: 50px; text-decoration: none; font-family: sans-serif;
-    font-size: 1rem; border: 2px solid var(--green); transition: all 0.2s;
+    background:transparent; color:var(--teal-light); padding:.9rem 2.2rem;
+    border-radius:4px; text-decoration:none; font-family:sans-serif;
+    font-size:.95rem; border:2px solid var(--teal-light);
+    text-transform:uppercase; letter-spacing:.6px;
+    transition:all .2s;
   }
-  .btn-secondary:hover { background: var(--green); color: white; }
+  .btn-secondary:hover { background:var(--teal-light); color:var(--navy-dark); }
 
-  /* SECTIONS */
-  section { padding: 6rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
+  /* ── SECTIONS ── */
+  section { padding:6rem 2rem; }
+  .container { max-width:1100px; margin:0 auto; }
   .section-label {
-    font-size: 0.78rem; font-family: sans-serif; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--green-light); margin-bottom: 0.8rem;
+    font-size:.73rem; font-family:sans-serif; letter-spacing:3px;
+    text-transform:uppercase; color:var(--teal); margin-bottom:.8rem;
+    display:flex; align-items:center; gap:.8rem;
   }
-  h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 1rem; }
-  h2 span { color: var(--green); }
-  .lead { font-family: sans-serif; color: var(--gray); font-size: 1.05rem; line-height: 1.8; max-width: 650px; }
+  .section-label::before { content:''; width:28px; height:2px; background:var(--teal); flex-shrink:0; }
+  h2 { font-size:clamp(1.8rem,4vw,2.75rem); line-height:1.2; margin-bottom:1.2rem; color:var(--dark); }
+  h2 span { color:var(--navy); }
+  .lead { font-family:sans-serif; color:var(--gray); font-size:1.05rem; line-height:1.88; max-width:640px; }
 
-  /* ABOUT */
-  .about { background: white; }
-  .about .container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  /* ── ABOUT ── */
+  .about { background:white; }
+  .about .container { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
   .about-visual {
-    background: linear-gradient(135deg, var(--green-pale), var(--green-light));
-    border-radius: 24px; height: 380px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 6rem;
+    background:linear-gradient(135deg, var(--teal-pale), #b8dfe8);
+    border-radius:12px; height:400px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:7rem; position:relative; overflow:hidden;
+    border-top:5px solid var(--teal);
   }
-  .checklist { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; }
-  .checklist li { font-family: sans-serif; color: var(--dark); display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.95rem; }
-  .checklist li::before { content: '✓'; color: var(--green); font-weight: bold; margin-top: 1px; }
+  .about-visual::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:4px;
+    background:var(--navy);
+  }
+  .checklist { list-style:none; margin-top:1.8rem; display:flex; flex-direction:column; gap:.85rem; }
+  .checklist li {
+    font-family:sans-serif; color:var(--mid); display:flex;
+    align-items:flex-start; gap:.75rem; font-size:.95rem; line-height:1.5;
+  }
+  .checklist li::before { content:'✓'; color:var(--teal); font-weight:bold; flex-shrink:0; margin-top:1px; }
 
-  /* SERVICES */
-  .services { background: var(--cream); }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  /* ── SERVICES ── */
+  .services { background:var(--cream); }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; margin-top:3rem; }
   .card {
-    background: white; border-radius: 20px; padding: 2.2rem;
-    border: 1px solid rgba(45,106,79,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    background:white; border-radius:10px; padding:2.2rem;
+    border:1px solid #dde8ef; border-top:4px solid var(--teal);
+    transition:transform .2s, box-shadow .2s;
   }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(45,106,79,0.12); }
-  .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-  .card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--dark); }
-  .card p { font-family: sans-serif; color: var(--gray); font-size: 0.93rem; line-height: 1.75; }
-  .card-tag {
-    display: inline-block; margin-top: 1.2rem;
-    background: var(--green-pale); color: var(--green);
-    padding: 0.25rem 0.9rem; border-radius: 20px; font-size: 0.78rem; font-family: sans-serif;
-  }
+  .card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(26,58,92,0.12); }
+  .card-icon { font-size:2rem; margin-bottom:1rem; }
+  .card h3 { font-size:1.15rem; margin-bottom:.75rem; color:var(--navy); }
+  .card p { font-family:sans-serif; color:var(--gray); font-size:.92rem; line-height:1.78; }
 
-  /* CSR */
-  .csr { background: var(--dark); color: white; }
-  .csr h2 { color: white; }
-  .csr h2 span { color: var(--green-light); }
-  .csr .lead { color: rgba(255,255,255,0.7); }
-  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  /* ── CSR ── */
+  .csr { background:var(--navy-dark); }
+  .csr h2 { color:white; }
+  .csr h2 span { color:var(--teal-light); }
+  .csr .section-label { color:var(--teal-light); }
+  .csr .section-label::before { background:var(--teal-light); }
+  .csr .lead { color:rgba(255,255,255,.6); }
+  .phases { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
   .phase {
-    background: rgba(255,255,255,0.06); border-radius: 16px; padding: 1.8rem;
-    border: 1px solid rgba(82,183,136,0.2);
+    background:rgba(255,255,255,.05); border-radius:10px; padding:2rem;
+    border-left:4px solid var(--teal);
   }
-  .phase-num { font-size: 2.5rem; font-weight: bold; color: var(--green-light); opacity: 0.4; margin-bottom: 0.5rem; }
-  .phase h4 { color: white; font-size: 1.05rem; margin-bottom: 0.5rem; }
-  .phase p { font-family: sans-serif; color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.6; }
-  .csr-badges { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2.5rem; }
+  .phase-num { font-size:2.8rem; font-weight:bold; color:var(--teal); opacity:.45; font-family:sans-serif; margin-bottom:.4rem; }
+  .phase h4 { color:white; font-size:1rem; margin-bottom:.5rem; }
+  .phase p { font-family:sans-serif; color:rgba(255,255,255,.55); font-size:.88rem; line-height:1.65; }
+  .csr-badges { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2.5rem; }
   .badge {
-    background: rgba(82,183,136,0.15); color: var(--green-light);
-    border: 1px solid rgba(82,183,136,0.3);
-    padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.82rem; font-family: sans-serif;
+    background:rgba(42,143,168,.15); color:var(--teal-light);
+    border:1px solid rgba(42,143,168,.35);
+    padding:.4rem 1rem; border-radius:30px; font-size:.8rem; font-family:sans-serif;
   }
 
-  /* TRAINING */
-  .training { background: white; }
-  .training .container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .training-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+  /* ── TRAINING ── */
+  .training { background:white; }
+  .training .container { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .training-list { list-style:none; display:flex; flex-direction:column; gap:.75rem; margin-top:1.8rem; }
   .training-list li {
-    background: var(--green-pale); border-radius: 12px; padding: 1rem 1.3rem;
-    font-family: sans-serif; color: var(--dark); font-size: 0.95rem;
-    display: flex; align-items: center; gap: 0.8rem;
+    background:var(--teal-pale); border-left:3px solid var(--teal);
+    padding:.9rem 1.2rem; font-family:sans-serif; color:var(--mid);
+    font-size:.94rem; display:flex; align-items:center; gap:.8rem; border-radius:0 6px 6px 0;
   }
-  .training-list li span.ico { font-size: 1.3rem; }
+  .training-list li span.ico { font-size:1.2rem; }
 
-  /* MOM */
-  .mom {
-    background: linear-gradient(135deg, var(--green-pale), white);
-    text-align: center;
+  /* ── MOM BOX ── */
+  .mom-box {
+    background:var(--navy); border-radius:10px; padding:2.5rem;
+    border-top:4px solid var(--teal-light);
   }
-  .mom .container { max-width: 700px; }
-  .mom p { margin: 0 auto; }
+  .mom-icon { font-size:2.5rem; margin-bottom:1rem; }
+  .mom-box h3 { font-size:1.4rem; margin-bottom:.8rem; color:white; }
+  .mom-box p { font-family:sans-serif; color:rgba(255,255,255,.65); font-size:.93rem; line-height:1.78; margin-bottom:1.5rem; }
 
-  /* CONTACT */
-  .contact { background: var(--green); color: white; text-align: center; }
-  .contact h2 { color: white; }
-  .contact p { font-family: sans-serif; color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.8; max-width: 500px; margin: 0 auto 2rem; }
-  .contact-info { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
-  .contact-info a { color: white; text-decoration: none; font-family: sans-serif; opacity: 0.9; transition: opacity 0.2s; }
-  .contact-info a:hover { opacity: 1; text-decoration: underline; }
+  /* ── CONTACT ── */
+  .contact {
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color:white; text-align:center;
+  }
+  .contact h2 { color:white; }
+  .contact h2 span { color:var(--teal-light); }
+  .contact .section-label { justify-content:center; color:var(--teal-light); }
+  .contact .section-label::before { display:none; }
+  .contact > .container > p { font-family:sans-serif; color:rgba(255,255,255,.8); font-size:1.05rem; line-height:1.88; max-width:520px; margin:0 auto 2rem; }
+  .contact-info { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem; }
+  .contact-info a, .contact-info span {
+    color:rgba(255,255,255,.85); text-decoration:none;
+    font-family:sans-serif; font-size:.93rem; transition:color .2s;
+  }
+  .contact-info a:hover { color:var(--teal-light); }
 
-  /* FOOTER */
+  /* ── FOOTER ── */
   footer {
-    background: var(--dark); color: rgba(255,255,255,0.4);
-    text-align: center; padding: 1.5rem; font-family: sans-serif; font-size: 0.8rem;
+    background:#0c1c2b; color:rgba(255,255,255,.35);
+    text-align:center; padding:1.5rem; font-family:sans-serif; font-size:.78rem;
   }
+  footer span { color:var(--teal); }
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .about .container, .training .container { grid-template-columns: 1fr; gap: 2.5rem; }
-    .phases { grid-template-columns: 1fr; }
-    section { padding: 4rem 1.5rem; }
+  @media(max-width:768px){
+    nav { padding:0 1.5rem; }
+    .nav-links { display:none; }
+    .about .container, .training .container { grid-template-columns:1fr; gap:2.5rem; }
+    .phases { grid-template-columns:1fr; }
+    section { padding:4rem 1.5rem; }
   }
 </style>
 </head>
@@ -192,29 +236,27 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Krachtig</div>
+  <div class="nav-logo">Krach<span>tig</span></div>
   <ul class="nav-links">
-    <li><a href="#over" data-nl="Over mij" data-en="About me">Over mij</a></li>
-    <li><a href="#diensten" data-nl="Coaching" data-en="Coaching">Coaching</a></li>
-    <li><a href="#training" data-nl="Training" data-en="Training">Training</a></li>
-    <li><a href="#contact" data-nl="Contact" data-en="Contact">Contact</a></li>
+    <li><a href="#over"     data-nl="Over mij"  data-en="About me">Over mij</a></li>
+    <li><a href="#diensten" data-nl="Coaching"  data-en="Coaching">Coaching</a></li>
+    <li><a href="#training" data-nl="Training"  data-en="Training">Training</a></li>
+    <li><a href="#contact"  data-nl="Contact"   data-en="Contact">Contact</a></li>
   </ul>
-  <button class="translate-btn" onclick="toggleLang()">
-    <span>🌐</span> <span id="langLabel">EN</span>
-  </button>
+  <button class="translate-btn" onclick="toggleLang()">🌐 <span id="langLabel">EN</span></button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag" data-nl="Coaching & Training in Wageningen" data-en="Coaching & Training in Wageningen">Coaching & Training in Wageningen</div>
+  <div class="hero-tag" data-nl="Coaching & Training · Wageningen" data-en="Coaching & Training · Wageningen">Coaching & Training · Wageningen</div>
   <h1 data-nl="Kom terug in <span>jouw kracht</span>" data-en="Rediscover <span>your strength</span>">Kom terug in <span>jouw kracht</span></h1>
   <p data-nl="Ik begeleid hoger opgeleide medewerkers bij loopbaan, stress & burn-out, time-management en persoonlijke effectiviteit — zodat jij met meer energie, plezier en voldoening werkt en leeft."
      data-en="I guide highly educated professionals through career challenges, stress & burnout, time management and personal effectiveness — so you can work and live with more energy, joy and fulfilment.">
     Ik begeleid hoger opgeleide medewerkers bij loopbaan, stress & burn-out, time-management en persoonlijke effectiviteit — zodat jij met meer energie, plezier en voldoening werkt en leeft.
   </p>
   <div class="hero-btns">
-    <a href="#contact" class="btn-primary" data-nl="Neem contact op" data-en="Get in touch">Neem contact op</a>
-    <a href="#diensten" class="btn-secondary" data-nl="Ontdek het aanbod" data-en="Explore services">Ontdek het aanbod</a>
+    <a href="#contact"  class="btn-primary"   data-nl="Neem contact op"    data-en="Get in touch">Neem contact op</a>
+    <a href="#diensten" class="btn-secondary"  data-nl="Ontdek het aanbod"  data-en="Explore services">Ontdek het aanbod</a>
   </div>
 </section>
 
@@ -230,11 +272,11 @@
         Als erkend CSR-coach® en Practitioner Coach bij NOBCO help ik je bewust te worden van jezelf, jouw kwaliteiten en valkuilen, jouw patronen en belemmerende overtuigingen. Die bewustwording is de sleutel tot blijvende gedragsverandering.
       </p>
       <ul class="checklist">
-        <li data-nl="Erkend CSR-coach® (stress & burn-out)" data-en="Certified CSR-coach® (stress & burnout)">Erkend CSR-coach® (stress & burn-out)</li>
-        <li data-nl="Practitioner Coach bij NOBCO" data-en="Practitioner Coach at NOBCO">Practitioner Coach bij NOBCO</li>
-        <li data-nl="Partner bij CSR Expertisecentrum" data-en="Partner at CSR Expertise Centre">Partner bij CSR Expertisecentrum</li>
-        <li data-nl="Aangesloten bij Gingermood" data-en="Affiliated with Gingermood">Aangesloten bij Gingermood</li>
-        <li data-nl="Coachpraktijk in Wageningen, ook online" data-en="Practice in Wageningen, also online">Coachpraktijk in Wageningen, ook online</li>
+        <li data-nl="Erkend CSR-coach® (stress & burn-out)"                       data-en="Certified CSR-coach® (stress & burnout)">Erkend CSR-coach® (stress & burn-out)</li>
+        <li data-nl="Practitioner Coach bij NOBCO"                                 data-en="Practitioner Coach at NOBCO">Practitioner Coach bij NOBCO</li>
+        <li data-nl="Partner bij CSR Expertisecentrum stress en veerkracht"        data-en="Partner at CSR Expertise Centre for stress & resilience">Partner bij CSR Expertisecentrum stress en veerkracht</li>
+        <li data-nl="Aangesloten bij Gingermood"                                   data-en="Affiliated with Gingermood">Aangesloten bij Gingermood</li>
+        <li data-nl="Praktijk in Wageningen · ook online beschikbaar"              data-en="Practice in Wageningen · also available online">Praktijk in Wageningen · ook online beschikbaar</li>
       </ul>
     </div>
   </div>
@@ -249,26 +291,22 @@
       <div class="card">
         <div class="card-icon">🔥</div>
         <h3 data-nl="Stress & Burn-out" data-en="Stress & Burnout">Stress & Burn-out</h3>
-        <p data-nl="Met de bewezen CSR-methode begeleid ik je stap voor stap van uitputting naar herstel. Eerst fysiek, dan mentaal." data-en="Using the proven CSR method, I guide you step by step from exhaustion to recovery. Physical first, then mental.">Met de bewezen CSR-methode begeleid ik je stap voor stap van uitputting naar herstel. Eerst fysiek, dan mentaal.</p>
-        <span class="card-tag" data-nl="CSR-methode" data-en="CSR method">CSR-methode</span>
+        <p data-nl="Met de bewezen CSR-methode begeleid ik je stap voor stap van uitputting naar herstel — eerst fysiek, dan mentaal." data-en="Using the proven CSR method, I guide you step by step from exhaustion to recovery — physical first, then mental.">Met de bewezen CSR-methode begeleid ik je stap voor stap van uitputting naar herstel — eerst fysiek, dan mentaal.</p>
       </div>
       <div class="card">
         <div class="card-icon">🧭</div>
         <h3 data-nl="Loopbaancoaching" data-en="Career Coaching">Loopbaancoaching</h3>
         <p data-nl="Twijfels over je carrière? Ik help je helderheid krijgen over wat je wilt, wat je kunt en hoe je dat bereikt." data-en="Doubts about your career? I help you gain clarity on what you want, what you can do and how to get there.">Twijfels over je carrière? Ik help je helderheid krijgen over wat je wilt, wat je kunt en hoe je dat bereikt.</p>
-        <span class="card-tag" data-nl="Loopbaan" data-en="Career">Loopbaan</span>
       </div>
       <div class="card">
         <div class="card-icon">⏱️</div>
         <h3 data-nl="Time-management" data-en="Time Management">Time-management</h3>
-        <p data-nl="Leer grip krijgen op je agenda en energie, zodat je effectiever bent zonder jezelf voorbij te lopen." data-en="Learn to manage your calendar and energy, so you become more effective without burning out.">Leer grip krijgen op je agenda en energie, zodat je effectiever bent zonder jezelf voorbij te lopen.</p>
-        <span class="card-tag" data-nl="Effectiviteit" data-en="Effectiveness">Effectiviteit</span>
+        <p data-nl="Leer grip krijgen op je agenda en energie, zodat je effectiever bent zonder jezelf voorbij te lopen." data-en="Learn to manage your calendar and energy, becoming more effective without burning yourself out.">Leer grip krijgen op je agenda en energie, zodat je effectiever bent zonder jezelf voorbij te lopen.</p>
       </div>
       <div class="card">
         <div class="card-icon">💡</div>
         <h3 data-nl="Persoonlijke effectiviteit" data-en="Personal Effectiveness">Persoonlijke effectiviteit</h3>
         <p data-nl="Doorbreek belemmerende patronen en overtuigingen. Ontdek jouw kwaliteiten en kom in je kracht." data-en="Break through limiting patterns and beliefs. Discover your strengths and step into your power.">Doorbreek belemmerende patronen en overtuigingen. Ontdek jouw kwaliteiten en kom in je kracht.</p>
-        <span class="card-tag" data-nl="Persoonlijke groei" data-en="Personal growth">Persoonlijke groei</span>
       </div>
     </div>
   </div>
@@ -280,31 +318,32 @@
     <p class="section-label" data-nl="Wetenschappelijk onderbouwd" data-en="Scientifically grounded">Wetenschappelijk onderbouwd</p>
     <h2 data-nl="De <span>CSR-methode</span>" data-en="The <span>CSR method</span>">De <span>CSR-methode</span></h2>
     <p class="lead" data-nl="Een psychobiologische aanpak voor stressklachten en burn-out op drie niveaus: lichaam, psyche en gedrag. Bewezen effectiever en duurzamer dan een puur psychologische begeleiding."
-       data-en="A psychobiological approach for stress complaints and burnout on three levels: body, psyche and behaviour. Proven to be more effective and lasting than purely psychological guidance.">
+       data-en="A psychobiological approach for stress complaints and burnout on three levels: body, psyche and behaviour. Proven more effective and lasting than purely psychological guidance.">
       Een psychobiologische aanpak voor stressklachten en burn-out op drie niveaus: lichaam, psyche en gedrag. Bewezen effectiever en duurzamer dan een puur psychologische begeleiding.
     </p>
     <div class="phases">
       <div class="phase">
         <div class="phase-num">01</div>
-        <h4 data-nl="Roofbouw stoppen" data-en="Stop the overload">Roofbouw stoppen</h4>
-        <p data-nl="Fysiek herstel als fundament." data-en="Physical recovery as the foundation.">Fysiek herstel als fundament.</p>
+        <h4 data-nl="Roofbouw stoppen & fysiek herstel" data-en="Stop overload & physical recovery">Roofbouw stoppen & fysiek herstel</h4>
+        <p data-nl="Het lichaam krijgt prioriteit. Fysiek herstel is het fundament voor alles wat volgt." data-en="The body comes first. Physical recovery is the foundation for everything that follows.">Het lichaam krijgt prioriteit. Fysiek herstel is het fundament voor alles wat volgt.</p>
       </div>
       <div class="phase">
         <div class="phase-num">02</div>
-        <h4 data-nl="Reserves aanvullen" data-en="Rebuild reserves">Reserves aanvullen</h4>
-        <p data-nl="Zelfmanagement verbeteren en energie opbouwen." data-en="Improve self-management and build up energy.">Zelfmanagement verbeteren en energie opbouwen.</p>
+        <h4 data-nl="Reserves aanvullen & zelfmanagement" data-en="Rebuild reserves & self-management">Reserves aanvullen & zelfmanagement</h4>
+        <p data-nl="Je leert je energie bewust beheren en bouwt mentale veerkracht op." data-en="You learn to consciously manage your energy and build mental resilience.">Je leert je energie bewust beheren en bouwt mentale veerkracht op.</p>
       </div>
       <div class="phase">
         <div class="phase-num">03</div>
-        <h4 data-nl="Re-integreren" data-en="Reintegrate">Re-integreren</h4>
-        <p data-nl="Conditie opbouwen en duurzaam terugkeren." data-en="Build capacity and return sustainably.">Conditie opbouwen en duurzaam terugkeren.</p>
+        <h4 data-nl="Re-integreren & conditieopbouw" data-en="Reintegrate & build capacity">Re-integreren & conditieopbouw</h4>
+        <p data-nl="Stap voor stap duurzaam terugkeren naar werk en leven." data-en="Gradually and sustainably returning to work and life.">Stap voor stap duurzaam terugkeren naar werk en leven.</p>
       </div>
     </div>
     <div class="csr-badges">
-      <span class="badge" data-nl="✔ Wetenschappelijk onderbouwd" data-en="✔ Scientifically proven">✔ Wetenschappelijk onderbouwd</span>
-      <span class="badge" data-nl="✔ Bewezen effectief" data-en="✔ Proven effective">✔ Bewezen effectief</span>
-      <span class="badge" data-nl="✔ Meetbaar resultaat" data-en="✔ Measurable results">✔ Meetbaar resultaat</span>
-      <span class="badge" data-nl="✔ Supervisie & bijscholing" data-en="✔ Supervision & continuing education">✔ Supervisie & bijscholing</span>
+      <span class="badge" data-nl="✔ Wetenschappelijk onderbouwd"     data-en="✔ Scientifically proven">✔ Wetenschappelijk onderbouwd</span>
+      <span class="badge" data-nl="✔ Bewezen effectief"                data-en="✔ Proven effective">✔ Bewezen effectief</span>
+      <span class="badge" data-nl="✔ Eerst fysiek, dan mentaal"        data-en="✔ Physical first, then mental">✔ Eerst fysiek, dan mentaal</span>
+      <span class="badge" data-nl="✔ Meetbaar resultaat"               data-en="✔ Measurable results">✔ Meetbaar resultaat</span>
+      <span class="badge" data-nl="✔ Supervisie & bijscholing"         data-en="✔ Supervision & ongoing education">✔ Supervisie & bijscholing</span>
     </div>
   </div>
 </section>
@@ -315,28 +354,25 @@
     <div>
       <p class="section-label" data-nl="Voor teams & organisaties" data-en="For teams & organisations">Voor teams & organisaties</p>
       <h2 data-nl="<span>Trainingen</span> & Workshops" data-en="<span>Trainings</span> & Workshops"><span>Trainingen</span> & Workshops</h2>
-      <p class="lead" data-nl="Online en live trainingen voor medewerkers van universiteiten, financiële dienstverleners, onderzoeksorganisaties, bedrijven en gemeenten."
-         data-en="Online and in-person trainings for employees at universities, financial institutions, research organisations, businesses and municipalities.">
-        Online en live trainingen voor medewerkers van universiteiten, financiële dienstverleners, onderzoeksorganisaties, bedrijven en gemeenten.
+      <p class="lead" data-nl="Online en live trainingen voor medewerkers van o.a. universiteiten, financiële dienstverleners, onderzoeksorganisaties, bedrijven en gemeenten — altijd op maat."
+         data-en="Online and in-person trainings for employees at universities, financial institutions, research organisations, businesses and municipalities — always tailored.">
+        Online en live trainingen voor medewerkers van o.a. universiteiten, financiële dienstverleners, onderzoeksorganisaties, bedrijven en gemeenten — altijd op maat.
       </p>
       <ul class="training-list">
-        <li><span class="ico">🤝</span> <span data-nl="Samenwerking, communicatie & teamontwikkeling" data-en="Collaboration, communication & team development">Samenwerking, communicatie & teamontwikkeling</span></li>
-        <li><span class="ico">🌟</span> <span data-nl="Persoonlijk leiderschap & persoonlijke ontwikkeling" data-en="Personal leadership & personal development">Persoonlijk leiderschap & persoonlijke ontwikkeling</span></li>
-        <li><span class="ico">🧬</span> <span data-nl="Drijfveren & motivatie" data-en="Core drives & motivation">Drijfveren & motivatie</span></li>
-        <li><span class="ico">👥</span> <span data-nl="Intervisiebegeleiding" data-en="Intervision guidance">Intervisiebegeleiding</span></li>
+        <li><span class="ico">🤝</span><span data-nl="Samenwerking, communicatie & teamontwikkeling"       data-en="Collaboration, communication & team development">Samenwerking, communicatie & teamontwikkeling</span></li>
+        <li><span class="ico">🌟</span><span data-nl="Persoonlijk leiderschap & persoonlijke ontwikkeling" data-en="Personal leadership & personal development">Persoonlijk leiderschap & persoonlijke ontwikkeling</span></li>
+        <li><span class="ico">🧬</span><span data-nl="Drijfveren & motivatie"                               data-en="Core drives & motivation">Drijfveren & motivatie</span></li>
+        <li><span class="ico">👥</span><span data-nl="Intervisiebegeleiding"                                data-en="Intervision guidance">Intervisiebegeleiding</span></li>
       </ul>
     </div>
-    <div>
-      <div style="background: linear-gradient(135deg,#d8f3dc,#b7e4c7); border-radius:24px; padding:2.5rem; border: 1px solid rgba(45,106,79,0.15);">
-        <div style="font-size:2rem;margin-bottom:1rem">👩‍👧 More than Mom</div>
-        <h3 style="font-size:1.4rem;margin-bottom:0.8rem;" data-nl="Voor werkende moeders" data-en="For working mothers">Voor werkende moeders</h3>
-        <p style="font-family:sans-serif;color:var(--gray);font-size:0.93rem;line-height:1.75;margin-bottom:1.2rem;"
-           data-nl="Samen met compagnon Marieke Maat bied ik coaching, lezingen en trainingen aan werkende moeders — en andere doelgroepen die worstelen met hun werk/privé balans. Volledig afgestemd op jouw vraag."
-           data-en="Together with partner Marieke Maat, I offer coaching, talks and trainings to working mothers — and other groups struggling with work/life balance. Fully tailored to your needs.">
-          Samen met compagnon Marieke Maat bied ik coaching, lezingen en trainingen aan werkende moeders — en andere doelgroepen die worstelen met hun werk/privé balans. Volledig afgestemd op jouw vraag.
-        </p>
-        <a href="#contact" class="btn-primary" data-nl="Meer weten?" data-en="Find out more?">Meer weten?</a>
-      </div>
+    <div class="mom-box">
+      <div class="mom-icon">👩‍👧</div>
+      <h3 data-nl="More than Mom" data-en="More than Mom">More than Mom</h3>
+      <p data-nl="Samen met compagnon Marieke Maat bied ik coaching, lezingen en trainingen aan werkende moeders — en iedereen die worstelt met werk/privé balans. Volledig afgestemd op jouw vraag."
+         data-en="Together with partner Marieke Maat, I offer coaching, talks and trainings to working mothers — and anyone struggling with work/life balance. Fully tailored to your needs.">
+        Samen met compagnon Marieke Maat bied ik coaching, lezingen en trainingen aan werkende moeders — en iedereen die worstelt met werk/privé balans. Volledig afgestemd op jouw vraag.
+      </p>
+      <a href="#contact" class="btn-primary" data-nl="Meer weten?" data-en="Find out more?">Meer weten?</a>
     </div>
   </div>
 </section>
@@ -344,13 +380,13 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <p class="section-label" style="color:rgba(255,255,255,0.5)" data-nl="Vrijblijvend kennismaken" data-en="No-obligation introduction">Vrijblijvend kennismaken</p>
-    <h2 data-nl="Klaar om in jouw kracht te komen?" data-en="Ready to step into your strength?">Klaar om in jouw <span>kracht</span> te komen?</h2>
+    <p class="section-label" data-nl="Vrijblijvend kennismaken" data-en="No-obligation introduction">Vrijblijvend kennismaken</p>
+    <h2 data-nl="Klaar om in jouw <span>kracht</span> te komen?" data-en="Ready to step into your <span>strength</span>?">Klaar om in jouw <span>kracht</span> te komen?</h2>
     <p data-nl="Neem gerust contact op voor een vrijblijvend kennismakingsgesprek. Ik hoor graag wat er bij jou speelt."
        data-en="Feel free to reach out for a no-obligation introductory conversation. I'd love to hear what's on your mind.">
       Neem gerust contact op voor een vrijblijvend kennismakingsgesprek. Ik hoor graag wat er bij jou speelt.
     </p>
-    <a href="mailto:anouk@krachtig.nu" class="btn-primary" style="background:white;color:var(--green);display:inline-block;margin-bottom:2rem;"
+    <a href="mailto:anouk@krachtig.nu" class="btn-primary" style="background:var(--teal);display:inline-block;margin-bottom:2rem;"
        data-nl="Stuur een e-mail" data-en="Send an email">Stuur een e-mail</a>
     <div class="contact-info">
       <a href="tel:0642304688">📞 06 42 30 46 88</a>
@@ -361,12 +397,11 @@
 </section>
 
 <footer>
-  © 2024 Krachtig Coaching & Training — Anouk Romkes — Wageningen
+  © 2024 <span>Krachtig</span> Coaching & Training — Anouk Romkes — Wageningen
 </footer>
 
 <script>
   let lang = 'nl';
-
   function toggleLang() {
     lang = lang === 'nl' ? 'en' : 'nl';
     document.getElementById('langLabel').textContent = lang === 'nl' ? 'EN' : 'NL';
